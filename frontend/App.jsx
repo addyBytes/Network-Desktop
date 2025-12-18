@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./App.css";
-import PlaceHolder from "./components/PlaceHolder";
+import PlaceHolder from "./src/components/PlaceHolder";
+import Button from "./src/components/Button";
 
 function App() {
   const [email, setEmail] = useState("");
@@ -16,7 +17,13 @@ function App() {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
-        
+          <Button
+          label={email ? "Continue" : "Next"}
+          disabled={!email}
+          onClick={() => alert("Submitted")}
+        />
+
+
       </div>
     </div>
     
