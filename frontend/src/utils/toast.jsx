@@ -32,6 +32,12 @@ export const showToast = {
   
   login: () => 
     toast.success("Welcome back! Logging you in...", toastConfig),
+
+  email: () => 
+    toast.success("Password reset link sent successfully!", toastConfig),
+
+  reset: () => 
+    toast.success("Password reset successfully!", toastConfig),
     
   error: (message) => 
     toast.error(message || "Something went wrong.", toastConfig),

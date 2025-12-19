@@ -1,6 +1,7 @@
 // src/Screens/ForgotPassword.jsx
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { showToast } from "../utils/toast";
 
 import Title from "../components/Title";
 import PlaceHolder from "../components/PlaceHolder";
@@ -17,6 +18,7 @@ export default function ForgotPassword() {
     console.log("Send reset link to:", email);
     // Navigate to create password screen after "sending" the link
     navigate("/create-password");
+    showToast.email();
   };
 
   return (

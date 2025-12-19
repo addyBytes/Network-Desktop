@@ -1,7 +1,7 @@
 // src/Screens/VerificationScreen.jsx
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { showToast } from "../utils/toast"; // Import the separate toast utility
+import { showToast } from "../utils/toast"; 
 
 import Title from "../components/Title";
 import PlaceHolder from "../components/PlaceHolder";
@@ -46,7 +46,7 @@ export default function VerificationScreen() {
               label="Continue"
               type="submit"
               disabled={!isFormValid}
-              onClick={handleVerification} // Use the toast handler
+              onClick={handleVerification} 
             />
           </div>
 

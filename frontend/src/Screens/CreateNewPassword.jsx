@@ -1,6 +1,7 @@
 // src/Screens/CreateNewPassword.jsx
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { showToast } from "../utils/toast";
 
 import Title from "../components/Title";
 import PasswordInput from "../components/PasswordInput";
@@ -20,6 +21,7 @@ export default function CreateNewPassword() {
   const handleReset = () => {
     console.log("Password reset success");
     navigate("/login");
+    showToast.reset();
   };
 
   return (
