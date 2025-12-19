@@ -61,9 +61,15 @@ export default function RegistrationScreen() {
 
         {/* Forgot Password */}
         <Bottomtext
-          text="Forgot Password?"
-          onClick={() => console.log("Forgot password")}
-        />
+    text={
+      <>
+        Already Registered?{" "}
+        <span className="font-semibold text-black">Login &gt;</span>
+      </>
+  }
+      onClick={() => console.log("Redirect to Login")}
+/>
+
 
       </div>
     </div>
