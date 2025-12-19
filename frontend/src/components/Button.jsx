@@ -13,11 +13,15 @@ export default function Button({
         w-full
         rounded-xl
         py-3
+        px-6
         h-[50px]
         text-sm
         font-medium
         transition-all
         duration-20
+        flex
+        items-center
+        justify-start
         ${
           disabled
             ? "bg-gray-300 text-gray-500 cursor-not-allowed"

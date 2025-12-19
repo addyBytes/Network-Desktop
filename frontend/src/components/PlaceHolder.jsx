@@ -7,8 +7,7 @@ export default function PlaceHolder({
   name,
 }) {
   return (
-    <div className="w-full space-y-1">
-      {/* Label */}
+    <div className="w-full space-y-0.5"> {/* Changed from space-y-1 to space-y-0.5 for a smaller gap */}
       <label
         htmlFor={name}
         className="text-sm font-medium text-gray-700"
@@ -16,7 +15,6 @@ export default function PlaceHolder({
         {label}
       </label>
 
-      {/* Input */}
       <input
         id={name}
         name={name}

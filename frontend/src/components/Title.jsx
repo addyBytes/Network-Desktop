@@ -4,7 +4,7 @@ export default function Title({
   align = "center",
 }) {
   return (
-    <div className={`text-${align}`}>
+    <div className={`text-${align} ml-[-10]` }>
       <h1 className="font-instrument text-[42px] md:text-[56px] leading-tight ">
         {title}
       </h1>

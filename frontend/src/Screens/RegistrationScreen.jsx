@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom"; // 1. Add this import
 
 import Title from "../components/Title";
 import PlaceHolder from "../components/PlaceHolder";
@@ -7,6 +8,7 @@ import Button from "../components/Button";
 import Bottomtext from "../components/Bottomtext";
 
 export default function RegistrationScreen() {
+  const navigate = useNavigate(); // 2. Initialize the navigate function
   const [email, setEmail] = useState("");
   const [mobile, setMobile] = useState("");
   const [password, setPassword] = useState("");
@@ -56,21 +58,19 @@ export default function RegistrationScreen() {
         <Button
           label="Continue"
           disabled={!canSubmit}
-          onClick={() => console.log("Register submit")}
+          onClick={() => navigate("/verify")} // Navigates to verification
         />
 
-        {/* Forgot Password */}
+        {/* Login Navigation */}
         <Bottomtext
-    text={
-      <>
-        Already Registered?{" "}
-        <span className="font-semibold text-black">Login &gt;</span>
-      </>
-  }
-      onClick={() => console.log("Redirect to Login")}
-/>
-
-
+          text={
+            <>
+              Already Registered?{" "}
+              <span className="font-semibold text-black">Login &gt;</span>
+            </>
+          }
+          onClick={() => navigate("/login")} // This will now work
+        />
       </div>
     </div>
   );
