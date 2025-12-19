@@ -1,4 +1,6 @@
+// src/Screens/ForgotPassword.jsx
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import Title from "../components/Title";
 import PlaceHolder from "../components/PlaceHolder";
@@ -7,21 +9,26 @@ import Bottomtext from "../components/Bottomtext";
 
 export default function ForgotPassword() {
   const [email, setEmail] = useState("");
+  const navigate = useNavigate();
 
-  const canSubmit = email;
+  const canSubmit = email.trim() !== "";
+
+  const handleSendLink = () => {
+    console.log("Send reset link to:", email);
+    // Navigate to create password screen after "sending" the link
+    navigate("/create-password");
+  };
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-[#FFFDF7]">
       <div className="w-[360px] space-y-5">
         
-        {/* Title */}
         <Title
           align="center"
           title="Forgot Password"
           subtitle="Enter your registered email address and we’ll send you a reset link"
         />
 
-        {/* Email input */}
         <PlaceHolder
           label="Email"
           name="email"
@@ -31,14 +38,12 @@ export default function ForgotPassword() {
           onChange={(e) => setEmail(e.target.value)}
         />
 
-        {/* Submit button */}
         <Button
           label="Send Reset Link"
           disabled={!canSubmit}
-          onClick={() => console.log("Send reset link")}
+          onClick={handleSendLink}
         />
 
-        {/* Back to login */}
         <Bottomtext
           text={
             <>
@@ -46,7 +51,7 @@ export default function ForgotPassword() {
               <span className="font-semibold text-black">Login →</span>
             </>
           }
-          onClick={() => console.log("Go to Login")}
+          onClick={() => navigate("/login")}
         />
 
       </div>

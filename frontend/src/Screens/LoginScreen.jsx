@@ -1,23 +1,29 @@
+// src/Screens/LoginScreen.jsx
 import { useState } from "react";
-// Import the custom components
+import { useNavigate } from "react-router-dom";
+import { showToast } from "../utils/toast";
+
 import Title from "../components/Title";
 import PlaceHolder from "../components/PlaceHolder";
 import PasswordInput from "../components/PasswordInput";
 import Button from "../components/Button";
 import "../App.css";
-import { useNavigate } from "react-router-dom";
 
 export default function LoginScreen() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
-  // Validation logic to enable the Button component
   const isFormValid = email.trim() !== "" && password.trim() !== "";
+
+  const handleLogin = () => {
+    showToast.login();
+    console.log("User logged in!");
+  };
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-[#FBF9F1] px-4">
-      <div className="w-full max-w-[348px] ml-[-14] flex flex-col items-center">
+      <div className="w-full max-w-[348px] flex flex-col items-center">
         
         <Title
           title="Login"
@@ -26,7 +32,6 @@ export default function LoginScreen() {
         />
 
         <form className="w-full space-y-5 mt-10" onSubmit={(e) => e.preventDefault()}>
-          {/* Email Input */}
           <PlaceHolder
             label="Email"
             name="email"
@@ -36,7 +41,6 @@ export default function LoginScreen() {
             onChange={(e) => setEmail(e.target.value)}
           />
 
-          {/* Password Input */}
           <PasswordInput
             label="Password"
             name="password"
@@ -46,12 +50,11 @@ export default function LoginScreen() {
           />
 
           <div className="pt-2">
-            {/* Submit Button */}
             <Button
               label="Next"
               type="submit"
               disabled={!isFormValid}
-              onClick={() => console.log("User logged in!")}
+              onClick={handleLogin}
             />
           </div>
 
@@ -59,6 +62,7 @@ export default function LoginScreen() {
             <button 
               type="button"
               className="text-sm text-gray-400 hover:text-gray-600 font-medium"
+              onClick={() => navigate("/forgot-password")}
             >
               Forgot Password?
             </button>

@@ -1,4 +1,4 @@
-import LoginScreen from "./Screens/LoginScreen"; // Import the LoginScreen component
+import LoginScreen from "./Screens/LoginScreen"; 
 import RegistrationScreen from "./Screens/RegistrationScreen";
 import VerificationScreen from "./Screens/VerificationScreen";
 import AppRouter from "./AppRouter";

@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom"; // 1. Add this import
+import { useNavigate } from "react-router-dom"; 
+import { showToast } from "../utils/toast"; // Ensure this path matches where you saved the toast file
 
 import Title from "../components/Title";
 import PlaceHolder from "../components/PlaceHolder";
@@ -8,12 +9,18 @@ import Button from "../components/Button";
 import Bottomtext from "../components/Bottomtext";
 
 export default function RegistrationScreen() {
-  const navigate = useNavigate(); // 2. Initialize the navigate function
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [mobile, setMobile] = useState("");
   const [password, setPassword] = useState("");
 
   const canSubmit = email && mobile && password;
+
+  // New handler to trigger toast and navigate
+  const handleRegistration = () => {
+    showToast.registration();
+    navigate("/verify");
+  };
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-[#FFFDF7]">
@@ -58,7 +65,7 @@ export default function RegistrationScreen() {
         <Button
           label="Continue"
           disabled={!canSubmit}
-          onClick={() => navigate("/verify")} // Navigates to verification
+          onClick={handleRegistration} // Updated to use the new handler
         />
 
         {/* Login Navigation */}
@@ -69,7 +76,7 @@ export default function RegistrationScreen() {
               <span className="font-semibold text-black">Login &gt;</span>
             </>
           }
-          onClick={() => navigate("/login")} // This will now work
+          onClick={() => navigate("/login")}
         />
       </div>
     </div>
